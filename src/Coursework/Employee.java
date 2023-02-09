@@ -1,19 +1,28 @@
 package Coursework;
 
 public class Employee {
-    private final String surName, firstName, secondName;
-    private int department, salary;
-    private static int id = 0;
 
-    public Employee(String surName, String firstName, String secondName, int department, int salary) {
+    public static int counter = 1;
+
+
+    private final String surName, firstName, secondName;
+    private int department;
+    private double salary;
+
+
+    public Employee(int counter, String surName, String firstName, String secondName, int department, double salary) {
+
         this.surName = surName;
         this.firstName = firstName;
         this.secondName = secondName;
         this.department = department;
         this.salary = salary;
-        id++;
+        counter++;
     }
 
+    public static int id() {
+        return counter;
+    }
 
 
     public String getSurName() {
@@ -32,7 +41,7 @@ public class Employee {
         return department;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return salary;
     }
 
@@ -44,8 +53,53 @@ public class Employee {
         this.salary = salary;
     }
 
-    public int countId() {
-        return id;
+    @Override
+    public String  toString() {
+        return "Employee{" +
+                "surName='" + surName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", department=" + department +
+                ", salary=" + salary +
+                '}';
     }
+}
 
+class Employees {
+    public static void main(String[] args) {
+        Employee[] abc = new Employee[10];
+        abc[0] = new Employee(Employee.id(), "Иванов", "Иван", "Иваныч", 1, 30.000);
+        abc[1] = new Employee(Employee.id(), "Иванов", "Иван", "Иваныч", 2, 30.000);
+        abc[2] = new Employee(Employee.id(), "Иванов", "Иван", "Иваныч", 3, 30.000);
+        abc[3] = new Employee(Employee.id(), "Иванов", "Иван", "Иваныч", 4, 30.000);
+        abc[4] = new Employee(Employee.id(), "Иванов", "Иван", "Иваныч", 5, 30.000);
+        abc[5] = new Employee(Employee.id(), "Иванов", "Иван", "Иваныч", 1, 30.000);
+        abc[6] = new Employee(Employee.id(), "Иванов", "Иван", "Иваныч", 2, 30.000);
+        abc[7] = new Employee(Employee.id(), "Иванов", "Иван", "Иваныч", 3, 30.000);
+        abc[8] = new Employee(Employee.id(), "Иванов", "Иван", "Иваныч", 4, 30.000);
+        abc[9] = new Employee(Employee.id(), "Иванов", "Иван", "Иваныч", 5, 30.000);
+        for (int i = 0; i < abc.length; i++) {
+            System.out.println(abc[i]);
+        }
     }
+}
+
+
+//            void allEmployees() {}
+
+
+//            void sumSalary () {}
+
+
+//            void middleSalaryAllEmployees () {}
+
+
+//            void minSalaryEmploy () {}
+
+
+//            void maxSalaryEmploy () {}
+
+
+//            void allFullNames () {}
+
+//   
